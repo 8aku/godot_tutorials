@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=1]
 
-[node name="Menu Canvas" type="CanvasLayer"]
+[node name="MenuCanvas" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )

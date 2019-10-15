@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/Poogle.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Item.gd" type="Script" id=1]
 [ext_resource path="res://Images/Item/jelly1.png" type="Texture" id=2]
 [ext_resource path="res://Images/Item/jelly2.png" type="Texture" id=3]
 [ext_resource path="res://Images/Item/jelly3.png" type="Texture" id=4]
@@ -35,7 +35,6 @@ _sections_unfolded = [ "Collision", "Pickable" ]
 [node name="ItemSprite" type="AnimatedSprite" parent="." index="0"]
 
 position = Vector2( 0.284798, 0.711983 )
-scale = Vector2( 1, 1 )
 frames = SubResource( 1 )
 animation = "default"
 frame = 1

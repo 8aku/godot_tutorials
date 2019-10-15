@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/FloorSet.tres" type="TileSet" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Cake.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Poogle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=8]
 
 [node name="World2" type="Node2D"]
 
 pause_mode = 2
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause", "Transform" ]
 
@@ -40,7 +43,8 @@ __meta__ = {
 
 [node name="Portal" parent="TileMap" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 150, 370 )
+position = Vector2( 147.833, 367.518 )
+scale = Vector2( 0.244782, 0.234946 )
 world_scene = "res://Scenes/World.tscn"
 
 [node name="FloorMap" type="TileMap" parent="TileMap" index="1"]
@@ -67,8 +71,36 @@ _sections_unfolded = [ "Cell", "Z Index" ]
 
 [node name="Player" parent="TileMap" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 150, 80 )
+position = Vector2( 940, 440 )
 
-[node name="Menu Canvas" parent="." index="1" instance=ExtResource( 6 )]
+[node name="Cake" parent="TileMap" index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 313.333, 126.667 )
+
+[node name="Cake2" parent="TileMap" index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 746.667, 253.333 )
+
+[node name="Poogle" parent="TileMap" index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 146.667, 93.3333 )
+
+[node name="Poogle2" parent="TileMap" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 300, 420 )
+
+[node name="Poogle3" parent="TileMap" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 540, 200 )
+
+[node name="Poogle4" parent="TileMap" index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 920, 240 )
+
+[node name="Poogle5" parent="TileMap" index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 740, 406.667 )
+
+[node name="MenuCanvas" parent="." index="1" instance=ExtResource( 8 )]
 
 
