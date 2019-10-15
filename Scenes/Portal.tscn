@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Portal.gd" type="Script" id=1]
+[ext_resource path="res://Images/Portal/portal1.png" type="Texture" id=2]
+[ext_resource path="res://Images/Portal/portal2.png" type="Texture" id=3]
+[ext_resource path="res://Images/Portal/portal3.png" type="Texture" id=4]
+[ext_resource path="res://Images/Portal/portal4.png" type="Texture" id=5]
+
+
+
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Portal" type="Area2D"]
+
+position = Vector2( -25.8053, -194.282 )
+scale = Vector2( 0.177064, 0.157391 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable" ]
+__meta__ = {
+"_edit_group_": true
+}
+world_scene = "res://Scenes/World2.tscn"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+position = Vector2( 7.9317, -26.7692 )
+scale = Vector2( 5.88035, 6.11539 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 12.8548, -21.8462 )
+scale = Vector2( 3.70283, 3.66864 )
+shape = SubResource( 2 )
+
+

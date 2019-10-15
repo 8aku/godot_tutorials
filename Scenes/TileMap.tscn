@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Images/Tiles/2.png" type="Texture" id=1]
+[ext_resource path="res://Images/Tiles/3.png" type="Texture" id=2]
+[ext_resource path="res://Images/Tiles/4.png" type="Texture" id=3]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[node name="Node2D" type="Node2D"]
+
+position = Vector2( 2.95578, 1.79917 )
+
+[node name="Wall 1" type="Sprite" parent="." index="0"]
+
+position = Vector2( 32.0285, 13.5574 )
+scale = Vector2( 0.929928, 0.922843 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall 1" index="0"]
+
+position = Vector2( -0.0610428, -0.174397 )
+scale = Vector2( 0.998092, 0.99455 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 1/StaticBody2D" index="0"]
+
+position = Vector2( -0.0606799, 0.0835518 )
+scale = Vector2( 1.00296, 0.999727 )
+shape = SubResource( 1 )
+
+[node name="Wall 2" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 62.1004, 12.8953 )
+scale = Vector2( 0.929928, 0.922843 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall 2" index="0"]
+
+position = Vector2( -0.0610428, -0.174397 )
+scale = Vector2( 0.998092, 0.99455 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 2/StaticBody2D" index="0"]
+
+position = Vector2( -0.0606799, 0.0835518 )
+scale = Vector2( 1.00296, 0.999727 )
+shape = SubResource( 1 )
+
+[node name="Wall 3" type="Sprite" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 93.1957, 13.6859 )
+scale = Vector2( 0.929928, 0.922843 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall 3" index="0"]
+
+position = Vector2( -0.0610428, -0.174397 )
+scale = Vector2( 0.998092, 0.99455 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 3/StaticBody2D" index="0"]
+
+position = Vector2( -0.0606799, 0.0835518 )
+scale = Vector2( 1.00296, 0.999727 )
+shape = SubResource( 1 )
+
+
