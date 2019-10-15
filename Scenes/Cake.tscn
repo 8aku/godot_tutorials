@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Item.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Poogle.gd" type="Script" id=1]
 [ext_resource path="res://Images/Item/cake1.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -8,26 +8,49 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Cake" type="StaticBody2D" index="0"]
+[sub_resource type="CircleShape2D" id=2]
 
-input_pickable = false
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Cake" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="Body" type="StaticBody2D" parent="." index="0"]
+
+input_pickable = true
 collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable" ]
 
-[node name="ItemSprite" type="Sprite" parent="." index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" index="0"]
+
+position = Vector2( -0.27045, 1.89108 )
+scale = Vector2( 1.46945, 1.32708 )
+shape = SubResource( 1 )
+
+[node name="ItemSprite" type="Sprite" parent="Body" index="1"]
 
 position = Vector2( 0.284798, 0.711983 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -1.5735, 1.32774 )
-scale = Vector2( 1.40532, 1.15526 )
-shape = SubResource( 1 )
+position = Vector2( 0.54528, 0.859905 )
+scale = Vector2( 1.66428, 1.45594 )
+shape = SubResource( 2 )
 
 

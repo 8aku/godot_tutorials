@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/Item.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Poogle.gd" type="Script" id=1]
 [ext_resource path="res://Images/Item/jelly1.png" type="Texture" id=2]
 [ext_resource path="res://Images/Item/jelly2.png" type="Texture" id=3]
 [ext_resource path="res://Images/Item/jelly3.png" type="Texture" id=4]
 [ext_resource path="res://Images/Item/jelly4.png" type="Texture" id=5]
+
+
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -20,7 +27,19 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Poogle" type="StaticBody2D"]
+[node name="Poogle" type="Area2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="Body" type="StaticBody2D" parent="." index="0"]
 
 input_pickable = true
 collision_layer = 1
@@ -29,10 +48,14 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pickable" ]
+_sections_unfolded = [ "Pickable" ]
 
-[node name="ItemSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" index="0"]
+
+position = Vector2( 0.42926, 8.15626 )
+shape = SubResource( 3 )
+
+[node name="ItemSprite" type="AnimatedSprite" parent="Body" index="1"]
 
 position = Vector2( 0.284798, 0.711983 )
 frames = SubResource( 1 )
@@ -42,10 +65,8 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0.594281, 8.09081 )
-scale = Vector2( 0.901021, 0.806884 )
+position = Vector2( 0.54528, 9.2308 )
+scale = Vector2( 1.66428, 1.45594 )
 shape = SubResource( 2 )
-
-[connection signal="input_event" from="." to="." method="_on_Poogle_input_event"]
 
 
