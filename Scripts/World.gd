@@ -1,7 +1,7 @@
 extends Node
 
 onready var menu_popup = get_node("MenuCanvas/Panel")
-onready var save_popup = get_node("MenuCanvas/Panel/PopupPanel")
+onready var save_popup = get_node("MenuCanvas/Panel/FileDialog")
 var toggle = false
 	
 func _input(event):

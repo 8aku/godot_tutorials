@@ -104,6 +104,7 @@ _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
 [node name="PopupPanel" type="PopupPanel" parent="." index="3"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -120,32 +121,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 
-[node name="SaveButton" type="Button" parent="PopupPanel" index="0"]
-
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -142.0
-margin_top = -15.5
-margin_right = -31.0
-margin_bottom = 14.5
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "SAVE"
-flat = false
-align = 1
-
-[node name="TextEdit" type="TextEdit" parent="PopupPanel" index="1"]
+[node name="TextEdit" type="TextEdit" parent="PopupPanel" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
@@ -181,8 +157,70 @@ caret_blink_speed = 0.65
 caret_moving_by_right_click = true
 _sections_unfolded = [ "Pause" ]
 
+[node name="SaveButton" type="Button" parent="PopupPanel" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -142.0
+margin_top = -15.5
+margin_right = -31.0
+margin_bottom = 14.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "SAVE"
+flat = false
+align = 1
+
+[node name="FileDialog" type="FileDialog" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 281.0
+margin_top = 22.0
+margin_right = 720.0
+margin_bottom = 251.0
+rect_min_size = Vector2( 200, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Save a File"
+resizable = false
+dialog_hide_on_ok = false
+mode_overrides_title = true
+mode = 4
+access = 0
+filters = PoolStringArray(  )
+show_hidden_files = false
+current_dir = "res://"
+current_file = ""
+current_path = "res://"
+_sections_unfolded = [ "Dialog" ]
+
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+
+[connection signal="gui_input" from="PopupPanel/TextEdit" to="." method="_on_TextEdit_gui_input"]
+
 [connection signal="pressed" from="PopupPanel/SaveButton" to="." method="_on_SaveButton_pressed"]
+
+[connection signal="hide" from="FileDialog" to="." method="_on_FileDialog_hide"]
 
 
