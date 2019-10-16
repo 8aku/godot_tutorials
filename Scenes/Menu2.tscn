@@ -1,0 +1,188 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Menu2.gd" type="Script" id=1]
+
+[node name="Panel" type="PopupPanel" index="0"]
+
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -264.0
+margin_top = -136.0
+margin_right = -28.0
+margin_bottom = 131.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Button" type="Button" parent="." index="0"]
+
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = -87.5
+margin_right = 103.0
+margin_bottom = -44.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "SAVE"
+flat = false
+align = 1
+_sections_unfolded = [ "Grow Direction", "Margin", "Pause", "Rect" ]
+
+[node name="Button2" type="Button" parent="." index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = -21.5
+margin_right = 103.0
+margin_bottom = 21.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "LOAD"
+flat = false
+align = 1
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
+
+[node name="Button3" type="Button" parent="." index="2"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = 44.5
+margin_right = 103.0
+margin_bottom = 87.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "QUIT"
+flat = false
+align = 1
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
+
+[node name="PopupPanel" type="PopupPanel" parent="." index="3"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 125.0
+margin_top = -79.5
+margin_right = 434.0
+margin_bottom = 7.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="SaveButton" type="Button" parent="PopupPanel" index="0"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -142.0
+margin_top = -15.5
+margin_right = -31.0
+margin_bottom = 14.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "SAVE"
+flat = false
+align = 1
+
+[node name="TextEdit" type="TextEdit" parent="PopupPanel" index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 29.0
+margin_right = 129.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = ""
+readonly = false
+highlight_current_line = false
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+override_selected_font_color = false
+context_menu_enabled = true
+smooth_scrolling = false
+v_scroll_speed = 80.0
+hiding_enabled = 0
+wrap_lines = false
+caret_block_mode = false
+caret_blink = false
+caret_blink_speed = 0.65
+caret_moving_by_right_click = true
+_sections_unfolded = [ "Pause" ]
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+
+[connection signal="pressed" from="PopupPanel/SaveButton" to="." method="_on_SaveButton_pressed"]
+
+

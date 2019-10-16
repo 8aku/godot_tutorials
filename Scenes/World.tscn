@@ -12,13 +12,14 @@
 [node name="World" type="Node2D" index="0"]
 
 pause_mode = 2
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 pause_mode = 1
+editor/display_folded = true
 position = Vector2( 1.00488, 7.15256e-07 )
 mode = 0
 tile_set = ExtResource( 2 )

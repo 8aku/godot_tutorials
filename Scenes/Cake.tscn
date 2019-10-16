@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Poogle.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Cake.gd" type="Script" id=1]
 [ext_resource path="res://Images/Item/cake1.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/DialoguePanel.tscn" type="PackedScene" id=3]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -52,5 +55,21 @@ texture = ExtResource( 2 )
 position = Vector2( 0.54528, 0.859905 )
 scale = Vector2( 1.66428, 1.45594 )
 shape = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="DialoguePanel" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
+
+margin_left = -992.0
+margin_top = -530.0
+margin_right = 32.0
+margin_bottom = -448.0
+_sections_unfolded = [ "Material", "Theme", "Visibility" ]
 
 

@@ -8,7 +8,7 @@ script = ExtResource( 1 )
 game_version = "0.1"
 data = {
 "PLAYER": {
-"position": Vector2( 536.362, 256.613 )
+"position": Vector2( 90.9793, 60.6446 )
 }
 }
 
