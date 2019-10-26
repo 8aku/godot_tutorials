@@ -9,9 +9,9 @@ func _on_SaveButton_pressed():
 
 
 func _on_Button_button_down():
-	$FileDialog.show()
-	#PopupPanel/TextEdit.text = ""
-	#$PopupPanel.popup()
+	$PopupPanel/TextEdit.text = ""
+	$PopupPanel.popup()
+	#$FileDialog.show()
 
 func _on_TextEdit_gui_input(ev):
 	if ev is InputEventKey:
@@ -20,10 +20,13 @@ func _on_TextEdit_gui_input(ev):
 			$PopupPanel/SaveButton.grab_focus()
 
 func _on_FileDialog_hide():
-	print("ok")
 	$Button.grab_focus()
 
 
 func _on_Button2_pressed():
 	$FileDialog.hide()
 	print("Loading!")
+
+
+func _on_Button3_pressed():
+	 get_tree().quit()

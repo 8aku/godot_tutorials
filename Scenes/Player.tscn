@@ -8,7 +8,7 @@
 
 custom_solver_bias = 0.0
 radius = 10.0
-height = 14.5
+height = 15.0549
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -16,10 +16,10 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
-"speed": 3.5
+"speed": 8.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -56,8 +56,8 @@ _sections_unfolded = [ "Limit", "Smoothing", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0.446172, -0.739641 )
-scale = Vector2( 0.615128, 0.488346 )
+position = Vector2( 0.110557, -0.676736 )
+scale = Vector2( 0.707689, 0.522976 )
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]

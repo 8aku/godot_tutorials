@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/TileSet2.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/FloorSet.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/Cake.tscn" type="PackedScene" id=4]
+
+[node name="World3" type="Node2D" index="0"]
+
+rotation = -0.00115195
+scale = Vector2( 1.5, 1.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 1, 0, 3, 0, 0, 4, 0, 0, 5, 1, 0, 6, 1, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65536, 0, 0, 65545, 3, 0, 131072, 0, 0, 131081, 3, 0, 196608, 3, 0, 196617, 0, 0, 262144, 0, 0, 262153, 0, 0, 327680, 1, 0, 327684, 3, 0, 327685, 3, 0, 327689, 1, 0, 393216, 0, 0, 393220, 3, 0, 393221, 3, 0, 393225, 0, 0, 458752, 3, 0, 458761, 0, 0, 524288, 3, 0, 524297, 3, 0, 589824, 0, 0, 589833, 3, 0, 655360, 0, 0, 655369, 0, 0, 720896, 0, 0, 720905, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 3, 0, 786437, 0, 0, 786438, 3, 0, 786439, 3, 0, 786440, 0, 0, 786441, 0, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Player" parent="TileMap" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 94.4725, 87.9463 )
+
+[node name="TileMap2" type="TileMap" parent="TileMap" index="1"]
+
+scale = Vector2( 1, 1 )
+z_index = -1
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 196609, 1, 0, 196610, 0, 0, 196611, 0, 0, 196612, 1, 0, 196613, 1, 0, 196615, 0, 0, 196616, 0, 0, 262145, 1, 0, 262146, 0, 0, 262147, 0, 0, 262150, 1, 0, 262151, 0, 0, 262152, 0, 0, 327681, 1, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393221, 1, 0, 393222, 0, 0, 393223, 1, 0, 393224, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 1, 0, 458757, 1, 0, 458758, 0, 0, 458759, 1, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 1, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 1, 0, 589829, 1, 0, 589830, 0, 0, 589831, 1, 0, 589832, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
+
+[node name="Cake" parent="." index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 230.566, 94.6034 )
+
+

@@ -2,6 +2,11 @@ extends KinematicBody2D
 # Instead of _fixed_process use _physics_process. Instead of move() use move_and_collide(). Instead of set_rotd() use set_rotation_degrees().
 export var MOTION_SPEED = 220
 var RayNode
+# this will be false in a dialogue event
+var canMove = true
+var canInteract = false 
+var target
+var inventory = []
 
 func _ready():
 	set_physics_process(true)
@@ -9,6 +14,11 @@ func _ready():
 	RayNode = $RayCast2D
 	
 func _physics_process(delta):
+	if (canMove):
+		move_player(delta)
+		
+
+func move_player(delta):
 	var motion = Vector2()
 	
 	#motion
@@ -36,6 +46,29 @@ func _physics_process(delta):
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move_and_collide(motion)
 	
+func _input(event):
+	if(canInteract and event.is_action_pressed("interact")):
+		print("Interacting with " + target.get_name())
+
+		#get_node("DialogueParser").init_dialogue(target.get_name())
+		canMove = false
+
+		target.action(inventory)
+
+		if(target.is_in_group("Item") and inventory.find(target.get_name()) < 0):
+			inventory.append(target.get_name())
+			print("inventory: ", inventory)
+
+func _on_Area2D_body_enter(body, obj):
+	if(body.get_name() == "Player"):
+		canInteract = true
+		target = obj
+	
+func _on_Area2D_body_exit(body, obj):
+	if(body.get_name() == "Player"):
+		canInteract = false
+		target = null
+
 func save(save_game):
 	save_game.data["PLAYER"] = {
 		"position": position

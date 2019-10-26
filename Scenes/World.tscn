@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TileSet.tres" type="TileSet" id=2]
@@ -7,9 +7,12 @@
 [ext_resource path="res://Scenes/FloorSet.tres" type="TileSet" id=5]
 [ext_resource path="res://Scenes/Poogle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Cake.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/NPC1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/NPC1.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/DialogueParser.gd" type="Script" id=11]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 pause_mode = 2
 scale = Vector2( 2, 2 )
@@ -19,7 +22,6 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 pause_mode = 1
-editor/display_folded = true
 position = Vector2( 1.00488, 7.15256e-07 )
 mode = 0
 tile_set = ExtResource( 2 )
@@ -84,6 +86,25 @@ position = Vector2( 292.41, 107.698 )
 
 position = Vector2( 98.9846, 244.507 )
 
-[node name="MenuCanvas" parent="." index="1" instance=ExtResource( 8 )]
+[node name="NPC1" parent="TileMap" index="5" groups=[
+"Interactable",
+] instance=ExtResource( 8 )]
+
+position = Vector2( 241.467, 65.2982 )
+script = ExtResource( 9 )
+
+[node name="Item?" parent="TileMap" index="6" groups=[
+"Item",
+"Interactable",
+] instance=ExtResource( 8 )]
+
+position = Vector2( 130.399, 60.2876 )
+script = ExtResource( 9 )
+
+[node name="MenuCanvas" parent="." index="1" instance=ExtResource( 10 )]
+
+[node name="DialogueParser" type="Node" parent="." index="2"]
+
+script = ExtResource( 11 )
 
 
