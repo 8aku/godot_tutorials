@@ -11,6 +11,7 @@ var isChoiceDialogue = false
 var isEnd = false
 var events = { }
 var choices = { }
+onready var player = get_node("../TileMap/Player")
 
 #TO-DO: Keep another file of "story flags" indicating
 #actions player has done, use these to dictate how we should look up events
@@ -64,7 +65,7 @@ func get_choices():
 	for item in currDialogue:
 		if(typeof(item) != TYPE_STRING and item.has("linkPath")):
 			currChoices.append(item)
-	lock_next_button(true)
+	#lock_next_button(true)
 
 #TO-DO: Allow players to use arrow keys/joystick instead of buttons to select options
 #TO-DO: Allow players to use number keys to quickly select options
@@ -125,8 +126,8 @@ func set_next_dialogue(target):
 		set_choice_values()
 	else:
 		isEnd = true
-		get_node("../Player/KinematicBody2D").canMove = true
-		panelNode.set_hidden(true)
+		player.canMove = true
+		panelNode.hide()
 
 func get_user_choice(target):
 	var buttonName = target.get_name()

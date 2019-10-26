@@ -19,7 +19,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -74,7 +74,6 @@ collision_mask = 1
 position = Vector2( 0.976692, -1.34295 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
