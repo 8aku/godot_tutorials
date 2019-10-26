@@ -49,8 +49,7 @@ func move_player(delta):
 func _input(event):
 	if(canInteract and event.is_action_pressed("interact")):
 		print("Interacting with " + target.get_name())
-
-		#get_node("DialogueParser").init_dialogue(target.get_name())
+		get_node("../../DialogueParser").init_dialogue(target.get_name())
 		canMove = false
 
 		target.action(inventory)
@@ -58,6 +57,8 @@ func _input(event):
 		if(target.is_in_group("Item") and inventory.find(target.get_name()) < 0):
 			inventory.append(target.get_name())
 			print("inventory: ", inventory)
+			#deletes item!
+			#target.queue_free()
 
 func _on_Area2D_body_enter(body, obj):
 	if(body.get_name() == "Player"):

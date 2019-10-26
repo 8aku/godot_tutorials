@@ -11,3 +11,6 @@ func _ready():
 
 func action(inventory):
 	print("action!")
+
+func update_choices(choices):
+	pass

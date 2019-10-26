@@ -1,0 +1,15 @@
+{
+    "SceneName": "World",
+    "eventTarget": {
+        "Item": {
+            "Start": {
+                "Name": "itemInitial",
+                "Flag": false
+            },
+            "Repeat": {
+                "Name": "itemFound",
+                "Flag": false
+            }
+        }
+    }
+}

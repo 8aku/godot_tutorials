@@ -13,7 +13,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 32.0584
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -68,7 +68,7 @@ bounce = 0.0
 
 position = Vector2( 0.331612, -9.21603 )
 scale = Vector2( 1.01541, 0.461638 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D/StaticBody2D" index="1"]
 
@@ -81,7 +81,7 @@ shape = SubResource( 3 )
 position = Vector2( 0.788895, 3.78672 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 1
+frame = 3
 playing = true
 
 

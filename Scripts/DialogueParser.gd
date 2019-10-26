@@ -34,7 +34,7 @@ func choose_dialogue_branch(target):
 	else:
 		possibleBranches["Start"]["Flag"] = true
 		return possibleBranches["Start"]["Name"]
-
+		
 func choose_dialogue(possibilities, choices):
 	for item in possibilities:
 		if(item != "Start" and item != "Repeat"):
@@ -46,12 +46,11 @@ func look_up_event(target):
 	return events["eventTarget"][target]
 
 func load_file_as_JSON(path, target):
-	var file = File.new()
-	file.open(path, file.READ)
-	var content = (file.get_as_text())
-	target = parse_json(content)
-	file.close()
-	return target
+    var file = File.new()
+    file.open(path, file.READ)
+    var content = (file.get_as_text())
+    target.parse_json(content)
+    file.close()
 
 func lock_next_button(isHidden):
 	panelNode.get_node("Button").set_hidden(isHidden)
@@ -79,7 +78,7 @@ func display_choices(text):
 		choiceButton.set_pos(Vector2(10, 10 + 75*i))
 		choiceButton.set_size(Vector2(580, 50))
 		choiceButton.connect("pressed", self, "_on_button_pressed", [choiceButton])
-
+		
 		var choiceLabel = Label.new()
 		choiceLabel.set_name("ChoiceLabel" + str(i))
 		panelNode.get_node("ChoiceButton" + str(i)).add_child(choiceLabel)
@@ -132,7 +131,7 @@ func get_user_choice(target):
 	var buttonName = target.get_name()
 	var id = buttonName.to_int()
 	return id
-
+	
 func get_link_type(dialogue):
 	var linkType
 	if dialogue.has("divert"):
@@ -154,6 +153,7 @@ func _on_button_pressed(target):
 	panelNode.get_node("Label").set_text(textToShow)
 
 func init_dialogue(target):
+	
 	isDialogueEvent = false
 	initStory = null
 	currDialogue = null
@@ -161,11 +161,12 @@ func init_dialogue(target):
 	isChoice = false
 	isChoiceDialogue = false
 	isEnd = false
-
-	get_node("../TileMap/" + target).update_choices(choices)
+	
+	get_node("../" + target).update_choices(choices)
 	target = choose_dialogue_branch(target)
+	
 	panelNode.show()
-
+	
 	initStory = myStory["data"][target]
 	currDialogue = initStory[initStory["initial"]]["content"]
 	if currDialogue[1] != null:
@@ -179,14 +180,15 @@ func init_dialogue(target):
 
 func _ready():
 	set_process_input(true)
-
-	myStory = load_file_as_JSON("res://Narrative/storyTest.json", myStory)
-	events = load_file_as_JSON("res://Narrative/events.json", events)
-	choices = load_file_as_JSON("res://Narrative/choices.json", choices)
+	
+	load_file_as_JSON("Narrative/storyTest.json", myStory)
+	load_file_as_JSON("Narrative/events.json", events)
+	load_file_as_JSON("Narrative/choices.json", choices)
+	
 	panelNode = get_node("../CanvasLayer/Panel")
-
+	
 	var initButton = panelNode.get_node("Button")
 	initButton.connect("pressed", self, "_on_button_pressed", [initButton])
-
+	
 	if(panelNode.is_visible()):
 		panelNode.hide()

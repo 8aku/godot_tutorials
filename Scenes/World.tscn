@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TileSet.tres" type="TileSet" id=2]
@@ -10,7 +10,8 @@
 [ext_resource path="res://Scenes/NPC1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/NPC1.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/DialogueParser.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/DialoguePanel2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/DialogueParser.gd" type="Script" id=12]
 
 [node name="World" type="Node2D" index="0"]
 
@@ -84,7 +85,7 @@ position = Vector2( 292.41, 107.698 )
 
 [node name="Cake" parent="TileMap" index="4" instance=ExtResource( 7 )]
 
-position = Vector2( 98.9846, 244.507 )
+position = Vector2( 397.588, 369.662 )
 
 [node name="NPC1" parent="TileMap" index="5" groups=[
 "Interactable",
@@ -93,18 +94,20 @@ position = Vector2( 98.9846, 244.507 )
 position = Vector2( 241.467, 65.2982 )
 script = ExtResource( 9 )
 
-[node name="Item?" parent="TileMap" index="6" groups=[
+[node name="Item" parent="TileMap" index="6" groups=[
 "Item",
 "Interactable",
 ] instance=ExtResource( 8 )]
 
-position = Vector2( 130.399, 60.2876 )
+position = Vector2( 97.0701, 256.862 )
 script = ExtResource( 9 )
 
 [node name="MenuCanvas" parent="." index="1" instance=ExtResource( 10 )]
 
-[node name="DialogueParser" type="Node" parent="." index="2"]
+[node name="CanvasLayer" parent="." index="2" instance=ExtResource( 11 )]
 
-script = ExtResource( 11 )
+[node name="DialogueParser" type="Node" parent="." index="3"]
+
+script = ExtResource( 12 )
 
 
