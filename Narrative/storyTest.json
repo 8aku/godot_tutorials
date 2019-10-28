@@ -1,15 +1,7 @@
 {
-    "url_key": "vjz9",
-    "title": "A Story",
-    "updated_at": "2016-09-14T05:58:00Z",
-    "created_at": "2016-09-14T05:34:57Z",
     "data": {
         "optionMirroring": true,
-        "initial": "helloThereYoungC",
         "editorData": {
-            "authorName": "TheHappieCat",
-            "textSize": 0,
-            "playPoint": "alrightGreatNowW",
             "libraryVisible": true
         },
         "doorInitial": {

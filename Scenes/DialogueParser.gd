@@ -67,24 +67,19 @@ func get_choices():
 			currChoices.append(item)
 	#lock_next_button(true)
 
-#TO-DO: Allow players to use arrow keys/joystick instead of buttons to select options
-#TO-DO: Allow players to use number keys to quickly select options
-#TO-DO: Make an options menu to toggle dialogue options and input
-#TO-DO: Resize dialogue box and buttons based on screen, not magic numbers
-#TO-DO: Make validation script to make sure no choices or dialogue goes outside box
 func display_choices(text):
 	for i in range(0, currChoices.size()):
 		var choiceButton = Button.new()
 		choiceButton.set_name("ChoiceButton" + str(i))
 		panelNode.add_child(choiceButton)
-		choiceButton.set_pos(Vector2(10, 10 + 75*i))
+		choiceButton.set_position(Vector2(10, 10 + 75*i))
 		choiceButton.set_size(Vector2(580, 50))
 		choiceButton.connect("pressed", self, "_on_button_pressed", [choiceButton])
 
 		var choiceLabel = Label.new()
 		choiceLabel.set_name("ChoiceLabel" + str(i))
 		panelNode.get_node("ChoiceButton" + str(i)).add_child(choiceLabel)
-		choiceLabel.set_pos(Vector2(10, 10))
+		choiceLabel.set_position(Vector2(10, 10))
 		choiceLabel.set_size(Vector2(580, 50))
 		choiceLabel.set_autowrap(true)
 		choiceLabel.set_text(currChoices[i]["option"])

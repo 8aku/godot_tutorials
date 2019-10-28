@@ -87,7 +87,7 @@ position = Vector2( 292.41, 107.698 )
 
 position = Vector2( 397.588, 369.662 )
 
-[node name="NPC1" parent="TileMap" index="5" groups=[
+[node name="Professor" parent="TileMap" index="5" groups=[
 "Interactable",
 ] instance=ExtResource( 8 )]
 
