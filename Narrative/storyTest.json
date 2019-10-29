@@ -106,6 +106,34 @@
             },
             "initial": "0"
         },
+               "keyInitial": {
+            "0": {
+                "content": [
+                    "It's a shiny envelope....",
+                    {
+                        "divert": "1"
+                    }
+                ],
+                "choices": "keyInitial"
+            },
+            "1": {
+                "content": [
+                    "You might want this....",
+                    {
+                        "divert": "2"
+                    }
+                ]
+            },
+            "2": {
+                "content": [
+                    "You pocket the key.",
+                    {
+                        "isEnd":true
+                    }
+                ]
+            },
+            "initial": "0"
+        },
         "storyTest": {
             "initial": "helloThereYoungC",
             "okayIUnderstandI": {

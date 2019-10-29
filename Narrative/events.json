@@ -40,6 +40,16 @@
                 "Name": "itemFound",
                 "Flag": false
             }
+        },
+        "Key": {
+        	"Start:": {
+        		"Name": "keyInitial",
+        		"Flag": "haveInvitation"
+        	},
+        	"Repeat": {
+        		"Name": "keyFound",
+        		"Flag": false
+        	}
         }
     }
 }

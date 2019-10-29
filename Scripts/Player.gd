@@ -55,8 +55,13 @@ func _input(event):
 		target.action(inventory)
 
 		if(target.is_in_group("Item") and inventory.find(target.get_name()) < 0):
-			inventory.append(target.get_name())
-			print("inventory: ", inventory)
+			inventory.append(target)
+			update_inventory_ui(target.texture)
+			print(target.texture)
+			
+			#first img of item will be used
+			#add new sprite to the UI dynamically
+			
 			#deletes item!
 			#target.queue_free()
 
@@ -74,3 +79,14 @@ func save(save_game):
 	save_game.data["PLAYER"] = {
 		"position": position
 	}
+	
+func update_inventory_ui(texture):
+	var invImage = Sprite.new()
+	invImage.texture = texture;
+	$CanvasLayer/InvUI/Panel.add_child(invImage);
+	
+func show_inventory():
+		$CanvasLayer/InvUI/Panel.show()
+	
+func hide_inventory():
+	$CanvasLayer/InvUI/Panel.hide()

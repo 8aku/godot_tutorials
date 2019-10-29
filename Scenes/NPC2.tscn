@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Images/cwabbie1.png" type="Texture" id=1]
-[ext_resource path="res://Images/cwabbie2.png" type="Texture" id=2]
-[ext_resource path="res://Images/cwabbie3.png" type="Texture" id=3]
-[ext_resource path="res://Images/cwabbie4.png" type="Texture" id=4]
-[ext_resource path="res://Images/cwabbie5.png" type="Texture" id=5]
-[ext_resource path="res://Images/cwabbie6.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/NPC2.gd" type="Script" id=1]
+[ext_resource path="res://Images/shroomlord1.png" type="Texture" id=2]
+[ext_resource path="res://Images/shroomlord2.png" type="Texture" id=3]
+[ext_resource path="res://Images/shroomlord3.png" type="Texture" id=4]
+[ext_resource path="res://Images/shroomlord4.png" type="Texture" id=5]
+[ext_resource path="res://Images/shroomlord5.png" type="Texture" id=6]
+[ext_resource path="res://Images/shroomlord6.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -28,12 +29,12 @@ height = 20.0
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "inv_pic",
 "speed": 5.0
@@ -42,8 +43,13 @@ _sections_unfolded = [ "Resource" ]
 
 [node name="Node2D" type="Node2D" index="0"]
 
+position = Vector2( 0.643906, -0.214638 )
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+
 [node name="Area2D" type="Area2D" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 0.891402, 5.36755 )
 scale = Vector2( 1.28113, 1.13021 )
 input_pickable = true
@@ -84,7 +90,7 @@ shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( 0.788895, 3.78672 )
+position = Vector2( 1.21817, 2.49889 )
 frames = SubResource( 4 )
 animation = "default"
 playing = true

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shroomlord5.png-b6774cea46fc8a6b8ff103887a17a46b.stex"
+path="res://.import/cwabbie2.png-9bf925ed3e2656e09e8d755665083ae2.stex"
 
 [deps]
 
-source_file="res://Scenes/shroomlord5.png"
-dest_files=[ "res://.import/shroomlord5.png-b6774cea46fc8a6b8ff103887a17a46b.stex" ]
+source_file="res://Images/cwabbie2.png"
+dest_files=[ "res://.import/cwabbie2.png-9bf925ed3e2656e09e8d755665083ae2.stex" ]
 
 [params]
 

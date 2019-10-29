@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Images/Player/halloween-stranger1.png" type="Texture" id=2]
 [ext_resource path="res://Images/Player/halloween-stranger2.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/InvUI.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -19,7 +20,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -74,7 +75,18 @@ collision_mask = 1
 position = Vector2( 0.976692, -1.34295 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="InvUI" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
 
 
