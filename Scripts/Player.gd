@@ -6,7 +6,7 @@ var RayNode
 var canMove = true
 var canInteract = false 
 var target
-var inventory = []
+onready var inventory = $CanvasLayer/InvUI
 
 func _ready():
 	set_physics_process(true)
@@ -51,12 +51,9 @@ func _input(event):
 		print("Interacting with " + target.get_name())
 		get_node("../../DialogueParser").init_dialogue(target.get_name())
 		canMove = false
-		# if NPC gives you item, it will append to inv here
 		target.action(inventory)
-		
 		if(target.is_in_group("Item") and inventory.find(target) < 0):
 			inventory.append(target)
-			add_to_inv_ui(target)
 			
 			#deletes item!
 			#target.queue_free()
@@ -76,17 +73,8 @@ func save(save_game):
 		"position": position
 	}
 	
-func add_to_inv_ui(target):
-	var invImage = Texture.new()
-	invImage.texture = target.texture;
-	for i in range(0, inventory.size()):
-		invImage.set_position(Vector2(10, 10 + 75*i))
-		invImage.set_size(Vector2(580, 50))
-		
-	$CanvasLayer/InvUI/Panel.add_child(invImage);
-	
 func show_inventory():
-		$CanvasLayer/InvUI/Panel.show()
+	$CanvasLayer/InvUI/Panel.show()
 	
 func hide_inventory():
 	$CanvasLayer/InvUI/Panel.hide()

@@ -75,6 +75,7 @@ collision_mask = 1
 position = Vector2( 0.976692, -1.34295 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
