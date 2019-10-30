@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Images/cwabbie1.png" type="Texture" id=1]
+[ext_resource path="res://Images/cwabbie2.png" type="Texture" id=2]
+[ext_resource path="res://Images/cwabbie3.png" type="Texture" id=3]
+[ext_resource path="res://Images/cwabbie4.png" type="Texture" id=4]
+[ext_resource path="res://Images/cwabbie5.png" type="Texture" id=5]
+[ext_resource path="res://Images/cwabbie6.png" type="Texture" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 32.0584
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 23.7498
+
+[sub_resource type="CapsuleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "inv_pic",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+
+position = Vector2( 0.891402, 5.36755 )
+scale = Vector2( 1.28113, 1.13021 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( -0.862798, 0.13629 )
+scale = Vector2( 1.78412, 1.13031 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D" index="0"]
+
+position = Vector2( 0.331612, -9.21603 )
+scale = Vector2( 1.01541, 0.461638 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D/StaticBody2D" index="1"]
+
+position = Vector2( 0.924218, 4.76566 )
+scale = Vector2( 0.268479, 0.637942 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 0.788895, 3.78672 )
+frames = SubResource( 4 )
+animation = "default"
+frame = 4
+playing = true
+
+

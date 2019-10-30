@@ -5,19 +5,19 @@ func _draw():
 
 
 func _on_SaveButton_pressed():
-	$SaveMenu.hide()
+	$PopupPanel.hide()
 
 
 func _on_Button_button_down():
-	$SaveMenu/TextEdit.text = ""
-	$SaveMenu.popup()
+	$PopupPanel/TextEdit.text = ""
+	$PopupPanel.popup()
 	#$FileDialog.show()
 
 func _on_TextEdit_gui_input(ev):
 	if ev is InputEventKey:
 		if ev.scancode == KEY_TAB:
-			$SaveMenu/TextEdit.text = $PopupPanel/TextEdit.text.replace("	", "").replace(" ", "")
-			$SaveMenu/SaveButton.grab_focus()
+			$PopupPanel/TextEdit.text = $PopupPanel/TextEdit.text.replace("	", "").replace(" ", "")
+			$PopupPanel/SaveButton.grab_focus()
 
 func _on_FileDialog_hide():
 	$Button.grab_focus()

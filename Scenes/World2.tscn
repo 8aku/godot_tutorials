@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Useful/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/FloorSet.tres" type="TileSet" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Cake.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Poogle.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=8]
+
 
 [node name="World2" type="Node2D"]
 

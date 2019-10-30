@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Menu2.tscn" type="PackedScene" id=1]
 
-[node name="MenuCanvas" type="CanvasLayer"]
+[node name="MenuCanvas" type="CanvasLayer" index="0"]
 
 pause_mode = 2
 layer = 1

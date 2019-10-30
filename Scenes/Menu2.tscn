@@ -2,8 +2,6 @@
 
 [ext_resource path="res://Scripts/Menu2.gd" type="Script" id=1]
 
-
-
 [node name="Panel" type="PopupPanel" index="0"]
 
 pause_mode = 2
@@ -104,7 +102,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
-[node name="PopupPanel" type="PopupPanel" parent="." index="3"]
+[node name="SaveMenu" type="PopupPanel" parent="." index="3"]
 
 visible = false
 anchor_left = 0.5
@@ -123,7 +121,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 
-[node name="TextEdit" type="TextEdit" parent="PopupPanel" index="0"]
+[node name="TextEdit" type="TextEdit" parent="SaveMenu" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
@@ -159,7 +157,7 @@ caret_blink_speed = 0.65
 caret_moving_by_right_click = true
 _sections_unfolded = [ "Pause" ]
 
-[node name="SaveButton" type="Button" parent="PopupPanel" index="1"]
+[node name="SaveButton" type="Button" parent="SaveMenu" index="1"]
 
 anchor_left = 1.0
 anchor_top = 0.5
@@ -222,9 +220,9 @@ _sections_unfolded = [ "Dialog" ]
 
 [connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
 
-[connection signal="gui_input" from="PopupPanel/TextEdit" to="." method="_on_TextEdit_gui_input"]
+[connection signal="gui_input" from="SaveMenu/TextEdit" to="." method="_on_TextEdit_gui_input"]
 
-[connection signal="pressed" from="PopupPanel/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="SaveMenu/SaveButton" to="." method="_on_SaveButton_pressed"]
 
 [connection signal="hide" from="FileDialog" to="." method="_on_FileDialog_hide"]
 
