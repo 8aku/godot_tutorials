@@ -11,6 +11,7 @@ var isChoiceDialogue = false
 var isEnd = false
 var events = { }
 var choices = { }
+onready var player = get_node("../TileMap/Player")
 
 #TO-DO: Keep another file of "story flags" indicating
 #actions player has done, use these to dictate how we should look up events
@@ -34,7 +35,7 @@ func choose_dialogue_branch(target):
 	else:
 		possibleBranches["Start"]["Flag"] = true
 		return possibleBranches["Start"]["Name"]
-		
+
 func choose_dialogue(possibilities, choices):
 	for item in possibilities:
 		if(item != "Start" and item != "Repeat"):
@@ -46,11 +47,12 @@ func look_up_event(target):
 	return events["eventTarget"][target]
 
 func load_file_as_JSON(path, target):
-    var file = File.new()
-    file.open(path, file.READ)
-    var content = (file.get_as_text())
-    target.parse_json(content)
-    file.close()
+	var file = File.new()
+	file.open(path, file.READ)
+	var content = (file.get_as_text())
+	target = parse_json(content)
+	file.close()
+	return target
 
 func lock_next_button(isHidden):
 	panelNode.get_node("Button").set_hidden(isHidden)
@@ -63,26 +65,21 @@ func get_choices():
 	for item in currDialogue:
 		if(typeof(item) != TYPE_STRING and item.has("linkPath")):
 			currChoices.append(item)
-	lock_next_button(true)
+	#lock_next_button(true)
 
-#TO-DO: Allow players to use arrow keys/joystick instead of buttons to select options
-#TO-DO: Allow players to use number keys to quickly select options
-#TO-DO: Make an options menu to toggle dialogue options and input
-#TO-DO: Resize dialogue box and buttons based on screen, not magic numbers
-#TO-DO: Make validation script to make sure no choices or dialogue goes outside box
 func display_choices(text):
 	for i in range(0, currChoices.size()):
 		var choiceButton = Button.new()
 		choiceButton.set_name("ChoiceButton" + str(i))
 		panelNode.add_child(choiceButton)
-		choiceButton.set_pos(Vector2(10, 10 + 75*i))
+		choiceButton.set_position(Vector2(10, 10 + 75*i))
 		choiceButton.set_size(Vector2(580, 50))
 		choiceButton.connect("pressed", self, "_on_button_pressed", [choiceButton])
-		
+
 		var choiceLabel = Label.new()
 		choiceLabel.set_name("ChoiceLabel" + str(i))
 		panelNode.get_node("ChoiceButton" + str(i)).add_child(choiceLabel)
-		choiceLabel.set_pos(Vector2(10, 10))
+		choiceLabel.set_position(Vector2(10, 10))
 		choiceLabel.set_size(Vector2(580, 50))
 		choiceLabel.set_autowrap(true)
 		choiceLabel.set_text(currChoices[i]["option"])
@@ -124,14 +121,14 @@ func set_next_dialogue(target):
 		set_choice_values()
 	else:
 		isEnd = true
-		get_node("../Player/KinematicBody2D").canMove = true
-		panelNode.set_hidden(true)
+		player.canMove = true
+		panelNode.hide()
 
 func get_user_choice(target):
 	var buttonName = target.get_name()
 	var id = buttonName.to_int()
 	return id
-	
+
 func get_link_type(dialogue):
 	var linkType
 	if dialogue.has("divert"):
@@ -153,7 +150,6 @@ func _on_button_pressed(target):
 	panelNode.get_node("Label").set_text(textToShow)
 
 func init_dialogue(target):
-	
 	isDialogueEvent = false
 	initStory = null
 	currDialogue = null
@@ -161,12 +157,11 @@ func init_dialogue(target):
 	isChoice = false
 	isChoiceDialogue = false
 	isEnd = false
-	
-	get_node("../" + target).update_choices(choices)
+
+	get_node("../TileMap/" + target).update_choices(choices)
 	target = choose_dialogue_branch(target)
-	
 	panelNode.show()
-	
+
 	initStory = myStory["data"][target]
 	currDialogue = initStory[initStory["initial"]]["content"]
 	if currDialogue[1] != null:
@@ -180,15 +175,14 @@ func init_dialogue(target):
 
 func _ready():
 	set_process_input(true)
-	
-	load_file_as_JSON("Narrative/storyTest.json", myStory)
-	load_file_as_JSON("Narrative/events.json", events)
-	load_file_as_JSON("Narrative/choices.json", choices)
-	
+
+	myStory = load_file_as_JSON("res://Narrative/storyTest.json", myStory)
+	events = load_file_as_JSON("res://Narrative/events.json", events)
+	choices = load_file_as_JSON("res://Narrative/choices.json", choices)
 	panelNode = get_node("../CanvasLayer/Panel")
-	
+
 	var initButton = panelNode.get_node("Button")
 	initButton.connect("pressed", self, "_on_button_pressed", [initButton])
-	
+
 	if(panelNode.is_visible()):
 		panelNode.hide()

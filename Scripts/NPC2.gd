@@ -1,12 +1,13 @@
-extends Node2D
-
-export (Texture) var texture
+extends "res://Scripts/Item.gd"
 
 func _ready():
 	pass
 
 func update_choices(choices):
 	choices["haveInvitation"] = true
-	
+
 func action(inventory):
-	print("action!")
+	pass
+
+func consume():
+	pass

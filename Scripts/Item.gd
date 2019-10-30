@@ -1,7 +1,9 @@
-extends Area2D
+extends "res://Scripts/Interactable.gd"
 
-func _physics_process(delta):
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.name == "Player" and Input.is_action_pressed("interact"):
-			print("go to bed")
+func consume():
+	pass
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton && event.is_action_released("click"):
+		print("consumed")
+		consume()

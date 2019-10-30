@@ -106,7 +106,7 @@
             },
             "initial": "0"
         },
-               "keyInitial": {
+        "keyInitial": {
             "0": {
                 "content": [
                     "It's a shiny envelope....",
@@ -131,6 +131,18 @@
                         "isEnd":true
                     }
                 ]
+            },
+            "initial": "0"
+        },
+        "NPCGiverInitial": {
+            "0": {
+                "content": [
+                    "Another item wow!",
+                    {
+                        "isEnd":true
+                    }
+                ],
+                "choices": "NPCGiverInitial"
             },
             "initial": "0"
         },

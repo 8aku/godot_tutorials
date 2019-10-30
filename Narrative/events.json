@@ -50,6 +50,12 @@
         		"Name": "keyFound",
         		"Flag": false
         	}
+        },
+         "NPCGiver": {
+        	"Start:": {
+        		"Name": "NPCGiverInitial",
+        		"Flag": "haveKey2"
+        	}
         }
     }
 }

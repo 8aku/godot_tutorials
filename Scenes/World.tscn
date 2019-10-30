@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TileSet.tres" type="TileSet" id=2]
@@ -6,11 +6,17 @@
 [ext_resource path="res://Scenes/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/FloorSet.tres" type="TileSet" id=5]
 [ext_resource path="res://Scenes/NPC1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/NPC1.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/NPC2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/DialoguePanel2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/DialogueParser.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/KeyItem.gd" type="Script" id=9]
+[ext_resource path="res://Images/shroomlord4.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Item.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/NPCGiver.gd" type="Script" id=12]
+[ext_resource path="res://Images/walker6.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Item2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/MenuCanvas.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/DialoguePanel2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/DialogueParser.gd" type="Script" id=17]
 
 [node name="World" type="Node2D" index="0"]
 
@@ -80,10 +86,12 @@ _sections_unfolded = [ "Cell", "Occluder", "Z Index" ]
 
 [node name="Professor" parent="TileMap" index="3" groups=[
 "Interactable",
+"ItemGiver",
 ] instance=ExtResource( 6 )]
 
 position = Vector2( 250.996, 199.953 )
 script = ExtResource( 7 )
+texture = null
 
 [node name="Key" parent="TileMap" index="4" groups=[
 "Item",
@@ -91,21 +99,36 @@ script = ExtResource( 7 )
 ] instance=ExtResource( 8 )]
 
 position = Vector2( 90.5023, 225.525 )
+script = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Door" parent="TileMap" index="5" groups=[
-"Item",
 "Interactable",
 ] instance=ExtResource( 8 )]
 
 position = Vector2( 239.73, 72.5289 )
-script = ExtResource( 7 )
+script = ExtResource( 11 )
+texture = null
 
-[node name="MenuCanvas" parent="." index="1" instance=ExtResource( 9 )]
+[node name="NPCGiver" type="Node2D" parent="TileMap" index="6" groups=[
+"Item",
+"Interactable",
+]]
 
-[node name="CanvasLayer" parent="." index="2" instance=ExtResource( 10 )]
+position = Vector2( 279.534, 360.072 )
+script = ExtResource( 12 )
+texture = ExtResource( 13 )
+
+[node name="Area2D" parent="TileMap/NPCGiver" index="0" instance=ExtResource( 14 )]
+
+position = Vector2( -68.4641, 6.47559 )
+
+[node name="MenuCanvas" parent="." index="1" instance=ExtResource( 15 )]
+
+[node name="CanvasLayer" parent="." index="2" instance=ExtResource( 16 )]
 
 [node name="DialogueParser" type="Node" parent="." index="3"]
 
-script = ExtResource( 11 )
+script = ExtResource( 17 )
 
 

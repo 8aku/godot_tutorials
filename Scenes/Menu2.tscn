@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/Menu2.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Menu2.gd" type="Script" id=1]
+
+
 
 [node name="Panel" type="PopupPanel" index="0"]
 

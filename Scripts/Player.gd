@@ -51,16 +51,12 @@ func _input(event):
 		print("Interacting with " + target.get_name())
 		get_node("../../DialogueParser").init_dialogue(target.get_name())
 		canMove = false
-
+		# if NPC gives you item, it will append to inv here
 		target.action(inventory)
-
-		if(target.is_in_group("Item") and inventory.find(target.get_name()) < 0):
+		
+		if(target.is_in_group("Item") and inventory.find(target) < 0):
 			inventory.append(target)
-			update_inventory_ui(target.texture)
-			print(target.texture)
-			
-			#first img of item will be used
-			#add new sprite to the UI dynamically
+			add_to_inv_ui(target)
 			
 			#deletes item!
 			#target.queue_free()
@@ -80,9 +76,13 @@ func save(save_game):
 		"position": position
 	}
 	
-func update_inventory_ui(texture):
-	var invImage = Sprite.new()
-	invImage.texture = texture;
+func add_to_inv_ui(target):
+	var invImage = Texture.new()
+	invImage.texture = target.texture;
+	for i in range(0, inventory.size()):
+		invImage.set_position(Vector2(10, 10 + 75*i))
+		invImage.set_size(Vector2(580, 50))
+		
 	$CanvasLayer/InvUI/Panel.add_child(invImage);
 	
 func show_inventory():

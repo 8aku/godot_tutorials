@@ -45,7 +45,6 @@ _sections_unfolded = [ "Resource" ]
 
 position = Vector2( 0.643906, -0.214638 )
 script = ExtResource( 1 )
-texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." index="0"]
 
@@ -93,7 +92,7 @@ shape = SubResource( 3 )
 position = Vector2( 1.21817, 2.49889 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 5
+frame = 2
 playing = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

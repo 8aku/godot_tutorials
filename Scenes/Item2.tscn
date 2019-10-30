@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Images/walker5.png" type="Texture" id=1]
+[ext_resource path="res://Images/walker6.png" type="Texture" id=2]
+
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 32.0584
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Area2D" type="Area2D" index="0"]
+
+position = Vector2( 0.891402, 5.36755 )
+scale = Vector2( 1.28113, 1.13021 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -3.60798, 4.86593 )
+scale = Vector2( 2.47205, 1.23622 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( -2.44805, 5.40732 )
+scale = Vector2( 2.00494, 1.32826 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( -1.27218, 0.755024 )
+scale = Vector2( 1.78412, 1.13031 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+
+

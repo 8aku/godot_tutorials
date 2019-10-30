@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/walker5.png-409df69aff28677a63fd7c2da7b6e94c.stex"
+path="res://.import/walker6.png-bcc17cdc4eb2bd3310f029bce05002f4.stex"
 
 [deps]
 
-source_file="res://Scenes/walker5.png"
-dest_files=[ "res://.import/walker5.png-409df69aff28677a63fd7c2da7b6e94c.stex" ]
+source_file="res://Images/walker6.png"
+dest_files=[ "res://.import/walker6.png-bcc17cdc4eb2bd3310f029bce05002f4.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
